@@ -2,16 +2,16 @@
     <div class="newsList">
         <ul class="mui-table-view">
 				<li v-for="items in newsList" :key="items.id" class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
+					<router-link :to="'/home/newsInfo/'+ items.id">
 						<img class="mui-media-object mui-pull-left" src="items.img_url">
 						<div class="mui-media-body">
-							<h3>{{items.title}}</h3>
+							<h3 class='mui-ellipsis'>{{items.title}}</h3>
 							<p class='mui-ellipsis'>
-                                <span class="ctime">{{items.add_time}}</span>
-                                <span class="click">点击:{{items.click}}次</span>
+                                <span class="ctime mui-pull-left">{{items.add_time | dateFormat}}</span>
+                                <span class="click mui-pull-right">点击:{{items.click}}次</span>
                             </p>
 						</div>
-					</a>
+					</router-link>
 				</li>
 		</ul>
     </div>
@@ -29,7 +29,7 @@
         },
         methods:{
             getnewsList(){
-                this.$http.get('http://www.lovegf.cn:8899/api/getnewslist').then(result=>{
+                this.$http.get('api/getnewslist').then(result=>{
                     if(result.body.status===0){
                         this.newsList=result.body.message
                     }
@@ -45,7 +45,9 @@
             .mui-table-view-cell>a{
                 display: flex;
                 align-items: center;
+                width:100%;
                 .mui-media-body{
+                    width: 100%;
                     h3{
                         font-size: 14px;
                     }
