@@ -2,8 +2,8 @@
     <div class="comment">
         <h1>发表评论</h1>
         <hr>
-        <textarea placeholder="请输入您的评论(字数不得超过200字)"></textarea>
-        <mt-button type="primary" size='large'>发表评论</mt-button>
+        <textarea placeholder="请输入您的评论(字数不得超过200字)" v-model="msg"></textarea>
+        <mt-button type="primary" size='large' @click='postComment'>发表评论</mt-button>
 
         <div class="coment-main">
             <div class="comment-item" v-for="(item, index) in commentList" :key="index">
@@ -16,17 +16,20 @@
             </div>          
         </div>
 
-        <mt-button type="danger" size='large' plain>加载更多</mt-button>
+        <mt-button type="danger" size='large' plain @click='getMore'>加载更多</mt-button>
     </div>
 </template>
 
 <script>
+    import {Toast} from 'mint-ui'
+
     export default {
         props:['id'],
         data(){
             return {
                 pageindex:1,
-                commentList:[]
+                commentList:[],
+                msg:''
             }
         },
         created() {
@@ -37,7 +40,34 @@
                 this.$http.get('api/getcomments/'+this.id+'?pageindex='+this.pageindex).then(result=>{
                     if(result.body.status===0){
                         // console.log(result)
-                        this.commentList=result.body.message
+                        this.commentList=this.commentList.concat(result.body.message)
+                    }
+                    
+                })
+            },
+            getMore(){
+                this.pageindex++;
+                this.getComment();
+            },
+            postComment(){
+                if(this.msg.trim().length==0){
+                    return Toast('评论不能空')
+                }
+
+                this.$http.post('api/postcomment/'+this.id,{content:this.msg.trim()}).then(result=>{
+                    if(result.body.status===0){
+                        
+                        // var obj={
+                        //     user_name:'匿名用户',
+                        //     add_time:Date.now(),
+                        //     content:this.msg
+                        // }
+                        // this.commentList.unshift(obj);
+                        this.pageindex=1;
+                        this.commentList=[];
+                        this.getComment();
+                        this.msg='';
+                        Toast('评论成功')
                     }
                     
                 })
