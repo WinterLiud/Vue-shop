@@ -9,11 +9,15 @@ import router from './router/index.js'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
-import { Header,Swipe, SwipeItem ,Button} from 'mint-ui';
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+
+import { Header,Swipe, SwipeItem ,Button,Lazyload} from 'mint-ui';
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button);
+Vue.use(Lazyload)
 
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
@@ -25,6 +29,7 @@ Vue.filter('dateFormat',function(dataStr,pattern='YYYY-MM-DD HH:MM:SS'){
 })
 
 Vue.http.options.root='http://www.lovegf.cn:8899/'
+Vue.http.options.emulateJSON = true;
 
 new Vue({
   el: '#app',

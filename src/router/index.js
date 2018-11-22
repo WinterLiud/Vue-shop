@@ -8,6 +8,8 @@ import ShopcarComponent from '../pages/shopcar/'
 import SearchComponent from '../pages/search/'
 import newsListComponent from '../pages/newsList'
 import newsInfoComponent from '../pages/newsInfo'
+import photoListComponent from '../pages/photoList'
+import photoInfoComponent from '../pages/photoInfo'
 
 export default new router({
      routes:[
@@ -18,6 +20,8 @@ export default new router({
          {path:'/search',component:SearchComponent},
          {path:'/home/newsList',component:newsListComponent},
          {path:'/home/newsInfo/:id',component:newsInfoComponent},
+         {path:'/home/photoList',component:photoListComponent},
+         {path:'/home/photoInfo/:id',component:photoInfoComponent},
      ],
      linkActiveClass:'mui-active'
  })
