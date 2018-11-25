@@ -91,3 +91,4 @@ npm run build --report
   transition: all 0.6s ease;
 }
 ```
+## 缩略图第二种插件vue-preview

@@ -37,11 +37,13 @@
 
 <style lang="less">
   .app-container{
-    padding-top: 40px;
+    	padding-top: 40px;
 		padding-bottom: 50px;
 		overflow-x: hidden;
 	}
-	
+	.mint-header{
+		z-index: 100 !important;
+	}
 	.v-enter{
 		opacity: 0;
 		transform: translateX(100%)

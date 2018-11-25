@@ -9,15 +9,22 @@ import router from './router/index.js'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
-import VuePreview from 'vue2-preview'
+// import VuePreview from 'vue2-preview'
+// Vue.use(VuePreview)
+
+import VuePreview from 'vue-preview'
+
 Vue.use(VuePreview)
 
-import { Header,Swipe, SwipeItem ,Button,Lazyload} from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
-Vue.use(Lazyload)
+// import { Header,Swipe, SwipeItem ,Button,Lazyload} from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload)
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'

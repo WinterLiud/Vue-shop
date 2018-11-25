@@ -82,14 +82,13 @@ export default {
                 width: 40px;
                 height: 300px;
                 margin: auto;
-                background-color: red;
             }
-            img[lazy="error"] {
-                width: 100%;
-                height: 300px;
-                margin: auto;
-                background-color:#ccc;
-            }
+            // img[lazy="error"] {
+            //     width: 100%;
+            //     height: 300px;
+            //     margin: auto;
+            //     background-color:#ccc;
+            // }
             .description{
                 color: white;
                 text-align: left;

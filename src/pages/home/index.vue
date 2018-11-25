@@ -1,12 +1,13 @@
 <template>
     <div class="home-container">
-        <mt-swipe :auto="4000" class="banner">
+        <!-- <mt-swipe :auto="4000" class="banner">
             <mt-swipe-item v-for="(item,index) in bannerList" :key="index">
                 <a :href="item.url">
                     <img :src="item.img" alt="">
                 </a>
             </mt-swipe-item>
-        </mt-swipe>
+        </mt-swipe> -->
+        <swiper :bannerList="bannerList"></swiper>
 
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newsList">
@@ -15,9 +16,9 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photoList">
 		                    <img src="../../images/menu2.png" alt="">
 		                    <div class="mui-media-body">图片分享</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodsList">
 		                    <img src="../../images/menu3.png" alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="../../images/menu4.png" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
@@ -33,6 +34,8 @@
 </template>
 
 <script>
+    import swiper from '../../components/swiper'
+
     export default{
         data(){
             return {
@@ -50,34 +53,37 @@
                     }
                 })
             }
+        },
+        components:{
+            swiper
         }
     }
 </script>
 
 <style lang="less">
     .home-container{
-        .banner{
-            height: 200px;
-            .mint-swipe-item{
-                &:nth-child(1){
-                    background-color:yellow;
-                }
-                &:nth-child(2){
-                    background-color:red;
-                }
-                &:nth-child(3){
-                    background-color:blue;
-                }
-                a{
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    img{
-                        width: 100%;
-                    }
-                }
-            }
-        };
+        // .banner{
+        //     height: 200px;
+        //     .mint-swipe-item{
+        //         &:nth-child(1){
+        //             background-color:yellow;
+        //         }
+        //         &:nth-child(2){
+        //             background-color:red;
+        //         }
+        //         &:nth-child(3){
+        //             background-color:blue;
+        //         }
+        //         a{
+        //             display: block;
+        //             width: 100%;
+        //             height: 100%;
+        //             img{
+        //                 width: 100%;
+        //             }
+        //         }
+        //     }
+        // };
         .mui-grid-view{
             background-color: #fff;
             border: none;
