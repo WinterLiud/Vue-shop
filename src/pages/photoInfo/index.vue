@@ -97,12 +97,12 @@
             font-size: 13px;
             line-height: 30px;
         }
-        // .figure{
-        //     width: 40%;
-        //     display: inline-block;
-        //     padding: 0;
-        //     margin: 0 !important;
-        // }
+        figure{
+            width: 40%;
+            display: inline-block;
+            padding: 0;
+            margin: 0 5px !important;
+        }
         img{
             width: 50%;
             height:50% ;
