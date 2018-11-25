@@ -92,3 +92,17 @@ npm run build --report
 }
 ```
 ## 缩略图第二种插件vue-preview
+
+## 商品详情页，加入购物车业务基本形成
+
+  import Vuex from 'vuex'
+  Vue.use(Vuex)
+
+  var store=new Vuex.Store({
+    state:{
+      car:[]    //存储商品数据的数组
+    },
+    mutations:{
+      
+    }
+  })

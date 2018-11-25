@@ -9,6 +9,8 @@ import router from './router/index.js'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
+import store from './store.js'
+
 // import VuePreview from 'vue2-preview'
 // Vue.use(VuePreview)
 
@@ -41,5 +43,6 @@ Vue.http.options.emulateJSON = true;
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })

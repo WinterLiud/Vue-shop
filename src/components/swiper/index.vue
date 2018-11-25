@@ -20,15 +20,15 @@
         .banner{
             height: 200px;
             .mint-swipe-item{
-                // &:nth-child(1){
-                //     background-color:yellow;
-                // }
-                // &:nth-child(2){
-                //     background-color:red;
-                // }
-                // &:nth-child(3){
-                //     background-color:blue;
-                // }
+                &:nth-child(1){
+                    background-color:yellow;
+                }
+                &:nth-child(2){
+                    background-color:red;
+                }
+                &:nth-child(3){
+                    background-color:blue;
+                }
                 a{
                     display: block;
                     width: 100%;
